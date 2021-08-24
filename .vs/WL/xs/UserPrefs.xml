@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{1850FF27-16A6-4547-9AE8-A7B132F35046}|Default">
+  <MonoDevelop.Ide.ItemProperties.WL FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WL/Program.cs">
+    <Files>
+      <File FileName="WL/Program.cs" Line="20" Column="44" />
+      <File FileName="WL/Model/Card.cs" Line="20" Column="46" />
+      <File FileName="WL/Model/Deck.cs" Line="17" Column="1" />
+      <File FileName="WL/Context/WLContext.cs" Line="19" Column="53" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WL" expanded="True">
+            <Node name="WL" expanded="True">
+              <Node name="Context" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{1850FF27-16A6-4547-9AE8-A7B132F35046}|Default">
+  <MonoDevelop.Ide.ItemProperties.WL PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WL/Operations/CardOperations.cs">
+    <Files>
+      <File FileName="WL/UI/DecksMenu.cs" Line="45" Column="19" />
+      <File FileName="WL/UI/DeckEditMenu.cs" Line="93" Column="46" />
+      <File FileName="WL/UI/AddNewCardToDeckMenu.cs" Line="45" Column="88" />
+      <File FileName="WL/UI/ShowCardInfo.cs" Line="8" Column="16" />
+      <File FileName="WL/Operations/CardOperations.cs" Line="27" Column="48" />
+      <File FileName="WL/UI/ShowAllCardsInDeck.cs" Line="90" Column="41" />
+      <File FileName="WL/Model/CardDeck.cs" Line="17" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WordLearn" expanded="True">
+            <Node name="WL" expanded="True">
+              <Node name="Model" expanded="True" />
+              <Node name="Operations" expanded="True">
+                <Node name="CardOperations.cs" selected="True" />
+              </Node>
+              <Node name="UI" expanded="True" />
+            </Node>
+            <Node name="WorldLearn.Tests" expanded="True">
+              <Node name="DeckOperationsTests" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/vanyalaptii/projects/WL/WL/Operations/CardOperations.cs" relfile="WL/Operations/CardOperations.cs" line="26" column="1" />
+      <Breakpoint file="/Users/vanyalaptii/projects/WL/WL/Operations/CardOperations.cs" relfile="WL/Operations/CardOperations.cs" line="27" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
