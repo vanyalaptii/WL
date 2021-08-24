@@ -37,7 +37,7 @@ namespace WL.UI
 
                 foreach (var c in allCards)
                 {
-                    showAllCardsMenuOptions.Add(new Option(c.FrontSide, () => new ShowCardInfo().Run(c)));
+                    showAllCardsMenuOptions.Add(new Option(c.FrontSide, () => new ShowCardInfo(c).Run()));
                 }
 
             }

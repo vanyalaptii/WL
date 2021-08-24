@@ -18,7 +18,3 @@ namespace WL
         }
     }
 }
-
-
-//    //TODO: Experiment with tables
-//    //TODO: How to imrove global context?

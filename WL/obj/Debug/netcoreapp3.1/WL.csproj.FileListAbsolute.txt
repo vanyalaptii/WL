@@ -86,3 +86,4 @@
 /Users/vanyalaptii/projects/WL/WL/obj/Debug/netcoreapp3.1/WL.dll
 /Users/vanyalaptii/projects/WL/WL/obj/Debug/netcoreapp3.1/WL.pdb
 /Users/vanyalaptii/projects/WL/WL/obj/Debug/netcoreapp3.1/WL.genruntimeconfig.cache
+/Users/vanyalaptii/projects/WL/WL/obj/Debug/netcoreapp3.1/WL.csproj.AssemblyReference.cache

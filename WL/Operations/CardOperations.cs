@@ -58,6 +58,25 @@ namespace WL.Operations
             }
         }
 
+        public void MarcUnmarkCardAsMemorized(Card _card)
+        {
+            using (var Context = new WLContext())
+            {
+                var thisCard = Context.Cards.FirstOrDefault(c => c == _card);
+                if (thisCard.IsMemorised == false)
+                {
+                    thisCard.IsMemorised = true;
+                }
+                else
+                {
+                    thisCard.IsMemorised = false;
+                }
+                Context.Update(thisCard);
+                Context.SaveChanges();
+            }
+        }
+
+
         public List<Card> LoadAllCards()
         {
             using (var Context = new WLContext())

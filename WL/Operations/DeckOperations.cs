@@ -36,36 +36,5 @@ namespace WL.Operations
             }
         }
 
-        //public void AddCardToDeck(Deck _deck, Card _card)
-        //{
-        //    using (var Context = new WLContext())
-        //    {
-        //        var card = _card;
-        //        card.Decks.Add(_deck);
-        //        Context.SaveChanges();
-        //        //TODO: Test that
-        //    }
-        //}
-
-        //public void RemoveCardFromDeck(Deck _deck, Card _card)
-        //{
-        //    using (var Context = new WLContext())
-        //    {
-        //        var card = _card;
-        //        card.Decks.Remove(_deck);
-        //        Context.SaveChanges();
-        //        //TODO: Test that
-        //    }
-        //}
-
-        //public List<Card> LoadAllCardsFromDeck(Deck _deck)
-        //{
-        //    using (var Context = new WLContext())
-        //    {
-        //        var deck = Context.Decks.FirstOrDefault(d => d == _deck);
-        //        return deck.Cards.ToList();
-        //        //TODO: Test that
-        //    }
-        //}
     }
 }

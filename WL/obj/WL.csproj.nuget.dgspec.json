@@ -14,7 +14,7 @@
         "outputPath": "/Users/vanyalaptii/projects/WL/WL/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/vanyalaptii/.nuget/NuGet/NuGet.Config"
+          "/Users/vanyalaptii/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

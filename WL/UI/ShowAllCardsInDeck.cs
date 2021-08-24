@@ -22,10 +22,19 @@ namespace WL.UI
             {
                 deck = _deck;
 
-                showAllCardsInDeckOptions.Add(new Option(" Back <--\n", () => new DeckEditMenu(deck).Run()));
+                if(deck == null)
+                { 
+                    showAllCardsInDeckOptions.Add(new Option(" Back <--\n", () => new MainMenu().Run()));
+                }
+                else
+                {
+                    showAllCardsInDeckOptions.Add(new Option(" Back <--\n", () => new DeckEditMenu(deck).Run()));
+                }
 
-                var allCards = Context.Cards.Include(c => c.Decks).ToList();
-                    //.Where(c => c.Decks);
+                var allCards = Context.Cards
+                    .Include(c => c.Decks)
+                    .ThenInclude(c => c.Deck)
+                    .ToList();
 
                 foreach (var card in allCards)
                 {
@@ -33,52 +42,52 @@ namespace WL.UI
                     {
                         if (d.Deck == null) break;
                         if (d.Deck == deck)
-                            showAllCardsInDeckOptions.Add(new Option($"{card.FrontSide}", () => new ShowCardMenu().Run(card)));
+                            showAllCardsInDeckOptions.Add(new Option($"{card.FrontSide}", () => new ShowCardInfo(card, deck).Run()));
                     }
                 }
             }
 
-                // Set the default index of the selected item to be the first
-                int index = 0;
+            // Set the default index of the selected item to be the first
+            int index = 0;
 
-                // Write the menu out
-                WriteMenu(showAllCardsInDeckOptions, showAllCardsInDeckOptions[index]);
+            // Write the menu out
+            WriteMenu(showAllCardsInDeckOptions, showAllCardsInDeckOptions[index]);
 
-                // Store key info in here
-                ConsoleKeyInfo keyinfo;
-                do
+            // Store key info in here
+            ConsoleKeyInfo keyinfo;
+            do
+            {
+                keyinfo = Console.ReadKey();
+
+                // Handle each key input (down arrow will write the menu again with a different selected item)
+                if (keyinfo.Key == ConsoleKey.DownArrow)
                 {
-                    keyinfo = Console.ReadKey();
-
-                    // Handle each key input (down arrow will write the menu again with a different selected item)
-                    if (keyinfo.Key == ConsoleKey.DownArrow)
+                    if (index + 1 < showAllCardsInDeckOptions.Count)
                     {
-                        if (index + 1 < showAllCardsInDeckOptions.Count)
-                        {
-                            index++;
-                            WriteMenu(showAllCardsInDeckOptions, showAllCardsInDeckOptions[index]);
-                        }
-                    }
-
-                    if (keyinfo.Key == ConsoleKey.UpArrow)
-                    {
-                        if (index - 1 >= 0)
-                        {
-                            index--;
-                            WriteMenu(showAllCardsInDeckOptions, showAllCardsInDeckOptions[index]);
-                        }
-                    }
-
-                    // Handle different action for the option
-                    if (keyinfo.Key == ConsoleKey.Enter)
-                    {
-                        showAllCardsInDeckOptions[index].Selected.Invoke();
-                        index = 0;
+                        index++;
+                        WriteMenu(showAllCardsInDeckOptions, showAllCardsInDeckOptions[index]);
                     }
                 }
-                while (keyinfo.Key != ConsoleKey.X);
 
-                Console.ReadKey();
+                if (keyinfo.Key == ConsoleKey.UpArrow)
+                {
+                    if (index - 1 >= 0)
+                    {
+                        index--;
+                        WriteMenu(showAllCardsInDeckOptions, showAllCardsInDeckOptions[index]);
+                    }
+                }
+
+                // Handle different action for the option
+                if (keyinfo.Key == ConsoleKey.Enter)
+                {
+                    showAllCardsInDeckOptions[index].Selected.Invoke();
+                    index = 0;
+                }
+            }
+            while (keyinfo.Key != ConsoleKey.X);
+
+            Console.ReadKey();
             
         }
         // Default action of all the options.  
@@ -93,7 +102,7 @@ namespace WL.UI
         public void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
-            Console.WriteLine("Main Menu\n");
+            Console.WriteLine($"Cards in deck\n");
 
             foreach (Option option in options)
             {
