@@ -3,29 +3,21 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="WL/UI/ShowAllMemorizedCardsMenu.cs">
     <Files>
       <File FileName="WL/UI/LearningMenu.cs" Line="33" Column="1" IsPinned="True" />
-      <File FileName="WL/UI/LearningDeckMenu.cs" Line="74" Column="35" IsPinned="True" />
-      <File FileName="WL/UI/LerningAllCardsMenu.cs" Line="4" Column="37" IsPinned="True" />
-      <File FileName="WL/UI/LearningProcessMenu.cs" Line="38" Column="121" IsPinned="True" />
+      <File FileName="WL/UI/LearningDeckMenu.cs" IsPinned="True" />
+      <File FileName="WL/UI/LerningAllCardsMenu.cs" IsPinned="True" />
+      <File FileName="WL/UI/LearningProcessMenu.cs" IsPinned="True" />
       <File FileName="WL/Context/WLContext.cs" />
-      <File FileName="WL/Model/Card.cs" Line="9" Column="1" />
-      <File FileName="WL/UI/MainMenu.cs" Line="33" Column="107" />
-      <File FileName="WL/UI/ShowCardInfo.cs" Line="39" Column="147" />
-      <File FileName="WL/Operations/CardOperations.cs" Line="61" Column="21" />
+      <File FileName="WL/Model/Card.cs" />
+      <File FileName="WL/UI/MainMenu.cs" />
+      <File FileName="WL/UI/ShowCardInfo.cs" />
+      <File FileName="WL/Operations/CardOperations.cs" />
       <File FileName="WL/UI/ShowAllMemorizedCardsMenu.cs" Line="116" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WordLearn" expanded="True">
-            <Node name="WL" expanded="True">
-              <Node name="Context" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="Operations" expanded="True" />
-              <Node name="UI" expanded="True">
-                <Node name="ShowAllMemorizedCardsMenu.cs" selected="True" />
-              </Node>
-            </Node>
-            <Node name="WorldLearn.Tests" expanded="True">
+            <Node name="WorldLearn.Tests" expanded="True" selected="True">
               <Node name="DeckOperationsTests" expanded="True" />
             </Node>
           </Node>
