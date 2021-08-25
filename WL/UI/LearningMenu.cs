@@ -3,45 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using WL.Context;
-using WL.Model;
-using WL.Operations;
 
 namespace WL.UI
 {
-    public class MainMenu
+    public class LearningMenu
     {
-        public  List<Option> mainMenu;
+        public static List<Option> learningMenuOptions;
 
-        public int memorizedCount;
-        public int allCount;
-
-        public MainMenu() { }
+        public LearningMenu() {}
 
         public void Run()
         {
             Console.Clear();
 
-            using (var Context = new WLContext())
+            learningMenuOptions = new List<Option>
             {
-                memorizedCount = Context.Cards.Where(c => c.IsMemorised == true).Count();
-                allCount = Context.Cards.Count();
-            }
+                new Option(" Back <--\n", () => new MainMenu().Run()),
+                new Option(" Start lerning deck", () => new LearningDeckMenu().Run()),
+                new Option(" Start lerning all cards", () => new LearningProcessMenu().Run()),
+            };
 
-            mainMenu = new List<Option>
-            {
-                new Option("Start lerning", () => new LearningMenu().Run()),
-                new Option($"Progress {memorizedCount} of {allCount}", () => new ShowAllMemorizedCardsMenu().Run()),
-                new Option("Show Decks", () => new DecksMenu().Run()),
-                new Option("Show all cards", () => new ShowAllCardsMenu().Run()),
-                new Option("Add new card\n", () => new AddNewCardMenu().Run()),
-                new Option("Exit", () => Environment.Exit(0)),
-            };            
+            //using (var Context = new WLContext())
+            //{
+
+            //}
 
             // Set the default index of the selected item to be the first
-            int index = 0;
+            int index = 1;
 
             // Write the menu out
-            WriteMenu(mainMenu, mainMenu[index]);
+            WriteMenu(learningMenuOptions, learningMenuOptions[index]);
 
             // Store key info in here
             ConsoleKeyInfo keyinfo;
@@ -52,10 +43,10 @@ namespace WL.UI
                 // Handle each key input (down arrow will write the menu again with a different selected item)
                 if (keyinfo.Key == ConsoleKey.DownArrow)
                 {
-                    if (index + 1 < mainMenu.Count)
+                    if (index + 1 < learningMenuOptions.Count)
                     {
                         index++;
-                        WriteMenu(mainMenu, mainMenu[index]);
+                        WriteMenu(learningMenuOptions, learningMenuOptions[index]);
                     }
                 }
 
@@ -64,14 +55,14 @@ namespace WL.UI
                     if (index - 1 >= 0)
                     {
                         index--;
-                        WriteMenu(mainMenu, mainMenu[index]);
+                        WriteMenu(learningMenuOptions, learningMenuOptions[index]);
                     }
                 }
 
                 // Handle different action for the option
                 if (keyinfo.Key == ConsoleKey.Enter)
                 {
-                    mainMenu[index].Selected.Invoke();
+                    learningMenuOptions[index].Selected.Invoke();
                     index = 0;
                 }
             }
@@ -87,13 +78,13 @@ namespace WL.UI
             Console.Clear();
             Console.WriteLine(message);
             Thread.Sleep(3000);
-            WriteMenu(mainMenu, mainMenu.First());
+            WriteMenu(learningMenuOptions, learningMenuOptions.First());
         }
 
         public void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
-            Console.WriteLine("Main Menu\n");
+            Console.WriteLine("Learning Menu\n");
 
             foreach (Option option in options)
             {

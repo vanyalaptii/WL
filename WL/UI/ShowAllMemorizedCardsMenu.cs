@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using WL.Context;
-using WL.Model;
-using WL.Operations;
 
 namespace WL.UI
 {
-    public class MainMenu
+    public class ShowAllMemorizedCardsMenu
     {
-        public  List<Option> mainMenu;
+        public ShowAllMemorizedCardsMenu() {}
 
-        public int memorizedCount;
-        public int allCount;
-
-        public MainMenu() { }
+        public static List<Option> showAllMemorizedCardsMenuOptions;
 
         public void Run()
         {
@@ -23,25 +18,34 @@ namespace WL.UI
 
             using (var Context = new WLContext())
             {
-                memorizedCount = Context.Cards.Where(c => c.IsMemorised == true).Count();
-                allCount = Context.Cards.Count();
-            }
 
-            mainMenu = new List<Option>
-            {
-                new Option("Start lerning", () => new LearningMenu().Run()),
-                new Option($"Progress {memorizedCount} of {allCount}", () => new ShowAllMemorizedCardsMenu().Run()),
-                new Option("Show Decks", () => new DecksMenu().Run()),
-                new Option("Show all cards", () => new ShowAllCardsMenu().Run()),
-                new Option("Add new card\n", () => new AddNewCardMenu().Run()),
-                new Option("Exit", () => Environment.Exit(0)),
-            };            
+                showAllMemorizedCardsMenuOptions = new List<Option>
+                {
+                    new Option(" Back <--\n", () => new MainMenu().Run()),
+                };
+
+                var nullCheck = Context.Cards.FirstOrDefault();
+
+                if (nullCheck == null)
+                {
+                    WriteTemporaryMessage("Cards list is empty");
+                    new MainMenu().Run();
+                }
+
+                var allCards = Context.Cards.Where(c => c.IsMemorised == true).ToList();
+
+                foreach (var c in allCards)
+                {
+                    showAllMemorizedCardsMenuOptions.Add(new Option(c.FrontSide, () => new ShowCardInfo(c).Run()));
+                }
+
+            }
 
             // Set the default index of the selected item to be the first
             int index = 0;
 
             // Write the menu out
-            WriteMenu(mainMenu, mainMenu[index]);
+            WriteMenu(showAllMemorizedCardsMenuOptions, showAllMemorizedCardsMenuOptions[index]);
 
             // Store key info in here
             ConsoleKeyInfo keyinfo;
@@ -52,10 +56,10 @@ namespace WL.UI
                 // Handle each key input (down arrow will write the menu again with a different selected item)
                 if (keyinfo.Key == ConsoleKey.DownArrow)
                 {
-                    if (index + 1 < mainMenu.Count)
+                    if (index + 1 < showAllMemorizedCardsMenuOptions.Count)
                     {
                         index++;
-                        WriteMenu(mainMenu, mainMenu[index]);
+                        WriteMenu(showAllMemorizedCardsMenuOptions, showAllMemorizedCardsMenuOptions[index]);
                     }
                 }
 
@@ -64,14 +68,14 @@ namespace WL.UI
                     if (index - 1 >= 0)
                     {
                         index--;
-                        WriteMenu(mainMenu, mainMenu[index]);
+                        WriteMenu(showAllMemorizedCardsMenuOptions, showAllMemorizedCardsMenuOptions[index]);
                     }
                 }
 
                 // Handle different action for the option
                 if (keyinfo.Key == ConsoleKey.Enter)
                 {
-                    mainMenu[index].Selected.Invoke();
+                    showAllMemorizedCardsMenuOptions[index].Selected.Invoke();
                     index = 0;
                 }
             }
@@ -87,13 +91,13 @@ namespace WL.UI
             Console.Clear();
             Console.WriteLine(message);
             Thread.Sleep(3000);
-            WriteMenu(mainMenu, mainMenu.First());
+            WriteMenu(showAllMemorizedCardsMenuOptions, showAllMemorizedCardsMenuOptions.First());
         }
 
         public void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
-            Console.WriteLine("Main Menu\n");
+            Console.WriteLine("All memorized cards\n");
 
             foreach (Option option in options)
             {

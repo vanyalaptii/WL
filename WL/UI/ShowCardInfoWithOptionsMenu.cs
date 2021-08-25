@@ -1,48 +1,50 @@
 ﻿using System;
-using WL.Model;
-using ConsoleTables;
 using System.Collections.Generic;
-using WL.Operations;
-using System.Threading;
 using System.Linq;
-using WL.Context;
+using System.Threading;
+using ConsoleTables;
 using Microsoft.EntityFrameworkCore;
+using WL.Context;
+using WL.Model;
+using WL.Operations;
 
 namespace WL.UI
 {
-    public class ShowCardInfo
+    public class ShowCardInfoWithOptionsMenu
     {
+        public ShowCardInfoWithOptionsMenu()
+        {
+        }
+
         public Card card;
 
         public Deck deck;
+
+        public bool isHidden = true;
 
         public ConsoleTable Table;
 
         public List<Option> showCardInfoOptions = new List<Option>();
 
-        public ShowCardInfo(Card _card)
+        public ShowCardInfoWithOptionsMenu(Card _card)
         {
             card = _card;
         }
 
-        public ShowCardInfo(Card _card, Deck _deck)
+        public ShowCardInfoWithOptionsMenu(Card _card, Deck _deck)
         {
             card = _card;
-            deck = _deck;
+            deck = _deck;           
         }
 
         public void Run()
         {
             using (var Context = new WLContext())
-            { 
-                showCardInfoOptions.Add(new Option(" Back <--", () => new ShowAllCardsInDeck().Run(deck)));
+            {
+                showCardInfoOptions.Add(new Option(" Back <--", () => new LearningMenu().Run()));
+
+
                 showCardInfoOptions.Add(new Option(" Mark(unmark) card as memorized\n", () => new CardOperations().MarcUnmarkCardAsMemorized(card)));
-
-                //var thisCard = Context.Cards.FirstOrDefault(c => c == card).;
-
-                //var cat = Context.Categories
-                //    .Include(c => c.Cards)
-                //    .ToList();
 
                 var Cards = Context.Cards
                     .Include(c => c.Category)
@@ -50,7 +52,7 @@ namespace WL.UI
 
                 var thisCard = new Card();
 
-                foreach ( var c in Cards)
+                foreach (var c in Cards)
                 {
                     if (c.Id == card.Id)
                     {
@@ -58,6 +60,11 @@ namespace WL.UI
                         break;
                     }
                 }
+
+                var thisCardCategoryName = "";
+
+                if(!isHidden) 
+                    thisCardCategoryName = thisCard.Category.Name;
 
                 Table = new ConsoleTable("Front", "Back", "Category", "Memorized");
                 Table.AddRow(card.FrontSide, card.BackSide, thisCard.Category.Name, card.IsMemorised);

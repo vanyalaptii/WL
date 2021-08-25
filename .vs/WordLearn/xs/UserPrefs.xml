@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{1850FF27-16A6-4547-9AE8-A7B132F35046}|Default">
   <MonoDevelop.Ide.ItemProperties.WL PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WL/UI/ShowCardInfo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WL/UI/ShowAllMemorizedCardsMenu.cs">
     <Files>
-      <File FileName="WL/UI/DecksMenu.cs" Line="45" Column="19" />
-      <File FileName="WL/UI/DeckEditMenu.cs" />
-      <File FileName="WL/UI/AddNewCardToDeckMenu.cs" />
-      <File FileName="WL/UI/ShowAllCardsInDeck.cs" />
-      <File FileName="WL/UI/ShowCardInfo.cs" Line="49" Column="25" />
-      <File FileName="WL/Operations/CardOperations.cs" />
-      <File FileName="WL/UI/ShowAllCardsMenu.cs" />
-      <File FileName="WL/Model/Category.cs" />
-      <File FileName="WL/Operations/DeckOperations.cs" />
-      <File FileName="WL/Program.cs" />
+      <File FileName="WL/UI/LearningMenu.cs" Line="33" Column="1" IsPinned="True" />
+      <File FileName="WL/UI/LearningDeckMenu.cs" Line="74" Column="35" IsPinned="True" />
+      <File FileName="WL/UI/LerningAllCardsMenu.cs" Line="4" Column="37" IsPinned="True" />
+      <File FileName="WL/UI/LearningProcessMenu.cs" Line="38" Column="121" IsPinned="True" />
+      <File FileName="WL/Context/WLContext.cs" />
+      <File FileName="WL/Model/Card.cs" Line="9" Column="1" />
+      <File FileName="WL/UI/MainMenu.cs" Line="33" Column="107" />
+      <File FileName="WL/UI/ShowCardInfo.cs" Line="39" Column="147" />
+      <File FileName="WL/Operations/CardOperations.cs" Line="61" Column="21" />
+      <File FileName="WL/UI/ShowAllMemorizedCardsMenu.cs" Line="116" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,7 +22,7 @@
               <Node name="Model" expanded="True" />
               <Node name="Operations" expanded="True" />
               <Node name="UI" expanded="True">
-                <Node name="ShowCardInfo.cs" selected="True" />
+                <Node name="ShowAllMemorizedCardsMenu.cs" selected="True" />
               </Node>
             </Node>
             <Node name="WorldLearn.Tests" expanded="True">
@@ -36,13 +36,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint enabled="false" file="/Users/vanyalaptii/projects/WL/WL/UI/ShowCardInfo.cs" relfile="WL/UI/ShowCardInfo.cs" line="43" column="1" />
-      <Breakpoint file="/Users/vanyalaptii/projects/WL/WL/UI/ShowCardInfo.cs" relfile="WL/UI/ShowCardInfo.cs" line="67" column="1" />
-      <Breakpoint file="/Users/vanyalaptii/projects/WL/WL/UI/ShowCardInfo.cs" relfile="WL/UI/ShowCardInfo.cs" line="53" column="1" />
-      <Breakpoint file="/Users/vanyalaptii/projects/WL/WL/UI/ShowCardInfo.cs" relfile="WL/UI/ShowCardInfo.cs" line="55" column="1" />
-      <Breakpoint file="/Users/vanyalaptii/projects/WL/WL/UI/ShowCardInfo.cs" relfile="WL/UI/ShowCardInfo.cs" line="57" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

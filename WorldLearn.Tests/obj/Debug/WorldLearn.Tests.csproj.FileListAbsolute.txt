@@ -43,6 +43,7 @@
 /Users/vanyalaptii/projects/WL/WorldLearn.Tests/bin/Debug/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 /Users/vanyalaptii/projects/WL/WorldLearn.Tests/bin/Debug/System.Diagnostics.DiagnosticSource.xml
 /Users/vanyalaptii/projects/WL/WorldLearn.Tests/bin/Debug/Microsoft.Extensions.PlatformAbstractions.xml
+/Users/vanyalaptii/projects/WL/WorldLearn.Tests/obj/Debug/WorldLearn.Tests.csproj.AssemblyReference.cache
 /Users/vanyalaptii/projects/WL/WorldLearn.Tests/obj/Debug/WorldLearn.Tests.csproj.CoreCompileInputs.cache
 /Users/vanyalaptii/projects/WL/WorldLearn.Tests/obj/Debug/WorldLearn.Tests.csproj.CopyComplete
 /Users/vanyalaptii/projects/WL/WorldLearn.Tests/obj/Debug/WorldLearn.Tests.dll

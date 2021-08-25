@@ -7,11 +7,11 @@ using WL.Model;
 
 namespace WL.UI
 {
-    public class DecksMenu
+    public class LearningDeckMenu
     {
-        public List<Option> decksMenuOptions = new List<Option>();
+        public List<Option> LearningDeckMenuOptions = new List<Option>();
 
-        public DecksMenu() { }
+        public LearningDeckMenu() { }
 
         public void Run()
         {
@@ -19,23 +19,23 @@ namespace WL.UI
 
             using (var Context = new WLContext())
             {
-                decksMenuOptions.Add(new Option(" Back <--", () => new MainMenu().Run()));
-                decksMenuOptions.Add(new Option(" Add new deck\n", () => new AddNewDeckMenu().Run()));
+                LearningDeckMenuOptions.Add(new Option(" Back <--\n", () => new MainMenu().Run()));
+                //LearningDeckMenuOptions.Add(new Option(" Add new deck\n", () => new AddNewDeckMenu().Run()));
 
                 var decks = new List<Deck>();
 
                 decks = Context.Decks.ToList();
 
-                foreach (var d in decks)
+                foreach (var deck in decks)
                 {
-                    decksMenuOptions.Add(new Option(d.Name, () => new DeckEditMenu(d).Run()));
+                    LearningDeckMenuOptions.Add(new Option(deck.Name, () => new LearningProcessMenu(deck).Run()));
                 }
 
                 // Set the default index of the selected item to be the first
-                int index = 0;
+                int index = 1;
 
                 // Write the menu out
-                WriteMenu(decksMenuOptions, decksMenuOptions[index]);
+                WriteMenu(LearningDeckMenuOptions, LearningDeckMenuOptions[index]);
 
                 // Store key info in here
                 ConsoleKeyInfo keyinfo;
@@ -46,10 +46,10 @@ namespace WL.UI
                     // Handle each key input (down arrow will write the menu again with a different selected item)
                     if (keyinfo.Key == ConsoleKey.DownArrow)
                     {
-                        if (index + 1 < decksMenuOptions.Count)
+                        if (index + 1 < LearningDeckMenuOptions.Count)
                         {
                             index++;
-                            WriteMenu(decksMenuOptions, decksMenuOptions[index]);
+                            WriteMenu(LearningDeckMenuOptions, LearningDeckMenuOptions[index]);
                         }
                     }
 
@@ -58,14 +58,14 @@ namespace WL.UI
                         if (index - 1 >= 0)
                         {
                             index--;
-                            WriteMenu(decksMenuOptions, decksMenuOptions[index]);
+                            WriteMenu(LearningDeckMenuOptions, LearningDeckMenuOptions[index]);
                         }
                     }
 
                     // Handle different action for the option
                     if (keyinfo.Key == ConsoleKey.Enter)
                     {
-                        decksMenuOptions[index].Selected.Invoke();
+                        LearningDeckMenuOptions[index].Selected.Invoke();
                         index = 0;
                     }
                 }
@@ -83,13 +83,13 @@ namespace WL.UI
             Console.Clear();
             Console.WriteLine(message);
             Thread.Sleep(3000);
-            WriteMenu(decksMenuOptions, decksMenuOptions.First());
+            WriteMenu(LearningDeckMenuOptions, LearningDeckMenuOptions.First());
         }
 
         private void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
-            Console.WriteLine("Decks Menu\n");
+            Console.WriteLine("Choose Deck\n");
 
             foreach (Option option in options)
             {
