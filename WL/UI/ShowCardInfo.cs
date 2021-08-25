@@ -44,33 +44,23 @@ namespace WL.UI
                     .Include(c => c.Cards)
                     .ToList();
 
-                Category thisCategory = new Category();
+                var Cards = Context.Cards
+                    .Include(c => c.Category)
+                    .ToList();
+                var thisCard = new Card();
 
-                //TODO: Find out why not loading category
-
-                foreach(var c in cat)
+                foreach ( var c in Cards)
                 {
-                    foreach(var crd in c.Cards)
+                    if (c.Id == card.Id)
                     {
-                        if (crd == card)
-                        {
-                            thisCategory = crd.Category;
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        thisCard = c;
+                        break;
                     }
                 }
 
                 Table = new ConsoleTable("Front", "Back", "Category", "Memorized");
-                Table.AddRow(card.FrontSide, card.BackSide, thisCategory.Name, card.IsMemorised);
-
-                Console.Clear();
+                Table.AddRow(card.FrontSide, card.BackSide, thisCard.Category.Name, card.IsMemorised);
             }
-
-    
-
 
             // Set the default index of the selected item to be the first
             int index = 0;

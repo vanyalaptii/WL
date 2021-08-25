@@ -3,15 +3,15 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="WL/UI/ShowCardInfo.cs">
     <Files>
       <File FileName="WL/UI/DecksMenu.cs" Line="45" Column="19" />
-      <File FileName="WL/UI/DeckEditMenu.cs" Line="28" Column="97" />
-      <File FileName="WL/UI/AddNewCardToDeckMenu.cs" Line="45" Column="88" />
-      <File FileName="WL/UI/ShowAllCardsInDeck.cs" Line="42" Column="22" />
+      <File FileName="WL/UI/DeckEditMenu.cs" />
+      <File FileName="WL/UI/AddNewCardToDeckMenu.cs" />
+      <File FileName="WL/UI/ShowAllCardsInDeck.cs" />
       <File FileName="WL/UI/ShowCardInfo.cs" Line="49" Column="25" />
-      <File FileName="WL/Operations/CardOperations.cs" Line="73" Column="18" />
-      <File FileName="WL/UI/ShowAllCardsMenu.cs" Line="45" Column="74" />
-      <File FileName="WL/Model/Category.cs" Line="8" Column="1" />
-      <File FileName="WL/Operations/DeckOperations.cs" Line="38" Column="1" />
-      <File FileName="WL/Program.cs" Line="20" Column="2" />
+      <File FileName="WL/Operations/CardOperations.cs" />
+      <File FileName="WL/UI/ShowAllCardsMenu.cs" />
+      <File FileName="WL/Model/Category.cs" />
+      <File FileName="WL/Operations/DeckOperations.cs" />
+      <File FileName="WL/Program.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,9 +30,6 @@
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
